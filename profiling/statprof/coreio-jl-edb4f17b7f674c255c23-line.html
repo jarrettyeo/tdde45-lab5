@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./coreio.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># This file is a part of Julia. License is MIT: https://julialang.org/license
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-coreio-jl-print-2"></a>
+              3 (0.80%) samples spent in print<br />
+              0 (ex.),
+              3 (100.00%) (incl.)
+              when called from
+              f
+              <a href="test-jl-d769d51038fbb1aeca05-line.html#Ltest-jl-d769d51038fbb1aeca05-line.html-11">line 11</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-3"></a>3</td>
+          <td></td>
+          <td>3 (0.80%)</td>
+          <td>
+            <div class="callees">
+              3 (100.00%)
+              samples spent calling
+              <a href="gcutils-jl-e991bbb9587b4c13d29d-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-gcutils-jl-print-178">print</a><br />
+            </div>
+            <span class="code">print(xs...)   = print(stdout::IO, xs...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">println(xs...) = println(stdout::IO, xs...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">println(io::IO) = print(io, &#39;\n&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function show end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function repr end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">struct DevNull &lt;: IO end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const devnull = DevNull()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">isreadable(::DevNull) = false
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">iswritable(::DevNull) = true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">isopen(::DevNull) = true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">read(::DevNull, ::Type{UInt8}) = throw(EOFError())
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">write(::DevNull, ::UInt8) = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">unsafe_write(::DevNull, ::Ptr{UInt8}, n::UInt)::Int = n
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">close(::DevNull) = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">flush(::DevNull) = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">wait_connected(::DevNull) = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">wait_readnb(::DevNull) = wait()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">wait_readbyte(::DevNull) = wait()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">wait_close(::DevNull) = wait()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">eof(::DevNull) = true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">let CoreIO = Union{Core.CoreSTDOUT, Core.CoreSTDERR}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    global write, unsafe_write
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    write(io::CoreIO, x::UInt8) = Core.write(io, x)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    unsafe_write(io::CoreIO, x::Ptr{UInt8}, nb::UInt) = Core.unsafe_write(io, x, nb)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">stdin = devnull
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">stdout = Core.stdout
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lcoreio-jl-edb4f17b7f674c255c23-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">stderr = Core.stderr
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

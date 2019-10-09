@@ -1,0 +1,1308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./grisu/fastshortest.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># This file is a part of Julia, but is derived from
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># https://github.com/google/double-conversion which has the following license
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Copyright 2006-2014, the V8 project authors. All rights reserved.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Redistribution and use in source and binary forms, with or without
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># modification, are permitted provided that the following conditions are
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># met:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#     * Redistributions of source code must retain the above copyright
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       notice, this list of conditions and the following disclaimer.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#     * Redistributions in binary form must reproduce the above
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       copyright notice, this list of conditions and the following
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       disclaimer in the documentation and/or other materials provided
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       with the distribution.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#     * Neither the name of Google Inc. nor the names of its
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       contributors may be used to endorse or promote products derived
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       from this software without specific prior written permission.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const kMinExp = -60
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const kMaxExp = -32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-roundweed-34"></a>
+              2 (0.53%) samples spent in roundweed<br />
+              2 (100.00%) (ex.),
+              2 (100.00%) (incl.)
+              when called from
+              digitgen
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-98">line 98</a><br />
+            </div>
+            <span class="code">function roundweed(buffer,len,rest,tk,unit,kappa,too_high::UInt64,unsafe_interval::UInt64)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    small = too_high - unit
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    big = too_high + unit
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-37"></a>37</td>
+          <td>1 (0.27%)</td>
+          <td>1 (0.27%)</td>
+          <td>
+            <span class="code">    while rest &lt; small &amp;&amp;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            unsafe_interval - rest &gt;= tk &amp;&amp;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            (rest + tk &lt; small ||
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            small - rest &gt;= rest + tk - small)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        buffer[len-1] -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        rest += tk
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-44"></a>44</td>
+          <td>1 (0.27%)</td>
+          <td>1 (0.27%)</td>
+          <td>
+            <span class="code">    if rest &lt; big &amp;&amp;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_interval - rest &gt;= tk &amp;&amp;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        (rest + tk &lt; big ||
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        big - rest &gt; rest + tk - big)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return false, kappa
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return (2 * unit &lt;= rest) &amp;&amp; (rest &lt;= unsafe_interval - 4 * unit), kappa
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const SmallPowersOfTen = [
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        0, 1, 10, 100, 1000, 10000, 100000,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        1000000, 10000000, 100000000, 1000000000]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-bigpowten-57"></a>
+              1 (0.27%) samples spent in bigpowten<br />
+              0 (ex.),
+              1 (100.00%) (incl.)
+              when called from
+              digitgen
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-71">line 71</a><br />
+            </div>
+            <span class="code">function bigpowten(n,n_bits)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    guess = ((n_bits + 1) * 1233) &gt;&gt; 12
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    guess += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    i = SmallPowersOfTen[guess+1]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-61"></a>61</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="array-jl-e94fe94e94e507146e17-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-array-jl-getindex-728">getindex</a><br />
+            </div>
+            <span class="code">    return n &lt; i ? (SmallPowersOfTen[guess], guess-1) : (i,guess)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-63"></a>63</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-digitgen-64"></a>
+              13 (3.47%) samples spent in digitgen<br />
+              1 (100.00%) (ex.),
+              13 (100.00%) (incl.)
+              when called from
+              fastshortest
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-114">line 114</a><br />
+            </div>
+            <span class="code">function digitgen(low,w,high,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    unit::UInt64 = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-66"></a>66</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="operators-jl-e0e1796a928a9361cd7e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-operators-jl-591">&lt;&lt;</a><br />
+            </div>
+            <span class="code">    one = Float(unit &lt;&lt; -w.e, w.e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    too_high = Float(high.s+unit,high.e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-68"></a>68</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    unsafe_interval = too_high - Float(low.s-unit,low.e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-69"></a>69</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    integrals = too_high.s &gt;&gt; -one.e
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-70"></a>70</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    fractionals = too_high.s &amp; (one.s-1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-71"></a>71</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-bigpowten-57">bigpowten</a><br />
+            </div>
+            <span class="code">    divisor, kappa = bigpowten(integrals, 64 + one.e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-72"></a>72</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    len = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-73"></a>73</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    rest = UInt64(0)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-74"></a>74</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while kappa &gt; 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-75"></a>75</td>
+          <td></td>
+          <td>2 (0.53%)</td>
+          <td>
+            <div class="callees">
+              2 (100.00%)
+              samples spent calling
+              <a href="int-jl-7d1d1d24bc876ceacf40-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-int-jl-div">div</a><br />
+            </div>
+            <span class="code">        digit = div(integrals,divisor)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-76"></a>76</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        buffer[len] = 0x30 + digit
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-77"></a>77</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        len += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-78"></a>78</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        integrals %= divisor
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-79"></a>79</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        kappa -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-80"></a>80</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="operators-jl-e0e1796a928a9361cd7e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-operators-jl-591">&lt;&lt;</a><br />
+            </div>
+            <span class="code">        rest = (UInt64(integrals) &lt;&lt; -one.e) + fractionals
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-81"></a>81</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if rest &lt; unsafe_interval.s
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-82"></a>82</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            r, kappa = roundweed(buffer, len, rest, UInt64(divisor) &lt;&lt; -one.e,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-83"></a>83</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                        unit,kappa,(too_high - w).s,unsafe_interval.s)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-84"></a>84</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            return r, kappa, len
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-85"></a>85</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-86"></a>86</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        divisor = div(divisor,10)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-87"></a>87</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-88"></a>88</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-89"></a>89</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        fractionals *= 10
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-90"></a>90</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="int-jl-7d1d1d24bc876ceacf40-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-int-jl-874">*</a><br />
+            </div>
+            <span class="code">        unit *= 10
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-91"></a>91</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_interval = Float(unsafe_interval.s*10,unsafe_interval.e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-92"></a>92</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="operators-jl-e0e1796a928a9361cd7e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-operators-jl-639">&gt;&gt;</a><br />
+            </div>
+            <span class="code">        digit = fractionals &gt;&gt; -one.e
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-93"></a>93</td>
+          <td></td>
+          <td>3 (0.80%)</td>
+          <td>
+            <div class="callees">
+              2 (66.67%)
+              samples spent calling
+              <a href="int-jl-7d1d1d24bc876ceacf40-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-int-jl-874">+</a><br />
+              1 (33.33%)
+              samples spent calling
+              <a href="boot-jl-42a3f80125daa9a7caaf-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-boot-jl-setindex-">setindex!</a><br />
+            </div>
+            <span class="code">        buffer[len] = 0x30 + digit
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-94"></a>94</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        len += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-95"></a>95</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        fractionals &amp;= one.s - 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-96"></a>96</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        kappa -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-97"></a>97</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if fractionals &lt; unsafe_interval.s
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-98"></a>98</td>
+          <td></td>
+          <td>2 (0.53%)</td>
+          <td>
+            <div class="callees">
+              2 (100.00%)
+              samples spent calling
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-roundweed-34">roundweed</a><br />
+            </div>
+            <span class="code">            r, kappa = roundweed(buffer,len,fractionals,one.s,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-99"></a>99</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                        unit,kappa,(too_high - w).s*unit,unsafe_interval.s)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-100"></a>100</td>
+          <td>1 (0.27%)</td>
+          <td>1 (0.27%)</td>
+          <td>
+            <span class="code">            return r, kappa, len
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-101"></a>101</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-102"></a>102</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-103"></a>103</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-104"></a>104</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-105"></a>105</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-fastshortest-105"></a>
+              17 (4.53%) samples spent in fastshortest<br />
+              2 (100.00%) (ex.),
+              17 (100.00%) (incl.)
+              when called from
+              grisu
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-80">line 80</a><br />
+            </div>
+            <span class="code">function fastshortest(v, buffer = Vector{UInt8}(undef, 17))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-106"></a>106</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    f = normalize(Float64(v))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-107"></a>107</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    bound_minus, bound_plus = normalizedbound(v)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-108"></a>108</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ten_mk_min_exp = kMinExp - (f.e + FloatSignificandSize)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-109"></a>109</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ten_mk_max_exp = kMaxExp - (f.e + FloatSignificandSize)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-110"></a>110</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    cp = binexp_cache(ten_mk_min_exp,ten_mk_max_exp)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-111"></a>111</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="float-jl-9c8e686ffdd369a52d81-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-float-jl-153">*</a><br />
+            </div>
+            <span class="code">    scaled_w = f * cp
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-112"></a>112</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="float-jl-9c8e686ffdd369a52d81-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-float-jl-151">*</a><br />
+            </div>
+            <span class="code">    scaled_bound_minus = bound_minus * cp
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-113"></a>113</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    scaled_bound_plus = bound_plus * cp
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-114"></a>114</td>
+          <td>1 (0.27%)</td>
+          <td>14 (3.73%)</td>
+          <td>
+            <div class="callees">
+              13 (92.86%)
+              samples spent calling
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-digitgen-64">digitgen</a><br />
+            </div>
+            <span class="code">    r, kappa, len = digitgen(scaled_bound_minus,scaled_w,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-115"></a>115</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                             scaled_bound_plus,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-116"></a>116</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    decimal_exponent = -cp.de + kappa
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-117"></a>117</td>
+          <td>1 (0.27%)</td>
+          <td>1 (0.27%)</td>
+          <td>
+            <span class="code">    return r, len, decimal_exponent+len-1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-118"></a>118</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

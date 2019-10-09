@@ -1,0 +1,2528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./grisu/grisu.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># This file is a part of Julia. License is MIT: https://julialang.org/license
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">module Grisu
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">export print_shortest
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">export DIGITS, DIGITSs, grisu
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const SHORTEST = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const FIXED = 2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const PRECISION = 3
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;grisu/float.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;grisu/fastshortest.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;grisu/fastprecision.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;grisu/fastfixed.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;grisu/bignums.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;grisu/bignum.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const DIGITS = Vector{UInt8}(undef, 309+17)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const BIGNUMS = [Bignums.Bignum(),Bignums.Bignum(),Bignums.Bignum(),Bignums.Bignum()]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># NOTE: DIGITS[s] is deprecated; you should use getbuf() instead.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const DIGITSs = [DIGITS]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const BIGNUMSs = [BIGNUMS]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function __init__()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Threads.resize_nthreads!(DIGITSs)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Threads.resize_nthreads!(BIGNUMSs)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-getbuf-30"></a>
+              4 (1.07%) samples spent in getbuf<br />
+              2 (100.00%) (ex.),
+              4 (100.00%) (incl.)
+              when called from
+              _show
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-106">line 106</a><br />
+            </div>
+            <span class="code">function getbuf()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-31"></a>31</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="task-jl-bc7d0afe96f0df219554-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-task-jl-task_local_storage-144">task_local_storage</a><br />
+            </div>
+            <span class="code">    tls = task_local_storage()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-32"></a>32</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="abstractdict-jl-3afbdf39d40c96156893-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-abstractdict-jl-get-594">get</a><br />
+            </div>
+            <span class="code">    d = get(tls, :DIGITS, nothing)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if d === nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        d = Vector{UInt8}(undef, 309+17)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        tls[:DIGITS] = d
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-37"></a>37</td>
+          <td>2 (0.53%)</td>
+          <td>2 (0.53%)</td>
+          <td>
+            <span class="code">    return d::Vector{UInt8}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    (len, point, neg) = Grisu.grisu(v::AbstractFloat, mode, requested_digits, [buffer], [bignums])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Convert the number `v` to decimal using the Grisu algorithm.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">`mode` can be one of:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"> - `Grisu.SHORTEST`: convert to the shortest decimal representation which can be &quot;round-tripped&quot; back to `v`.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"> - `Grisu.FIXED`: round to `requested_digits` digits.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"> - `Grisu.PRECISION`: round to `requested_digits` significant digits.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">The characters are written as bytes to `buffer`, with a terminating NUL byte, and `bignums` are used internally as part of the correction step. You can call `Grisu.getbuf()` to obtain a suitable task-local buffer.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">The returned tuple contains:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"> - `len`: the number of digits written to `buffer` (excluding NUL)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"> - `point`: the location of the radix point relative to the start of the array (e.g. if
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">   `point == 3`, then the radix point should be inserted between the 3rd and 4th
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">   digit). Note that this can be negative (for very small values), or greater than `len`
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">   (for very large values).
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"> - `neg`: the signbit of `v` (see [`signbit`](@ref)).
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-grisu-61"></a>
+              19 (5.07%) samples spent in grisu<br />
+              1 (100.00%) (ex.),
+              19 (100.00%) (incl.)
+              when called from
+              grisu
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-62">line 62</a><br />
+              0 (ex.),
+              19 (100.00%) (incl.)
+              when called from
+              _show
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-107">line 107</a><br />
+            </div>
+            <span class="code">function grisu(v::AbstractFloat,mode,requested_digits,buffer=DIGITSs[Threads.threadid()],bignums=BIGNUMSs[Threads.threadid()])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-62"></a>62</td>
+          <td></td>
+          <td>19 (5.07%)</td>
+          <td>
+            <div class="callees">
+              19 (100.00%)
+              samples spent calling
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-grisu-61">grisu</a><br />
+            </div>
+            <span class="code">    if signbit(v)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-63"></a>63</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        neg = true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        v = -v
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-66"></a>66</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        neg = false
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-68"></a>68</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if mode == PRECISION &amp;&amp; requested_digits == 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-69"></a>69</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        buffer[1] = 0x00
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-70"></a>70</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        len = 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-71"></a>71</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return 0, 0, neg
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-72"></a>72</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-73"></a>73</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if v == 0.0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-74"></a>74</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        buffer[1] = 0x30
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-75"></a>75</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        buffer[2] = 0x00
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-76"></a>76</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        len = point = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-77"></a>77</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return len, point, neg
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-78"></a>78</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-79"></a>79</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if mode == SHORTEST
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-80"></a>80</td>
+          <td></td>
+          <td>18 (4.80%)</td>
+          <td>
+            <div class="callees">
+              17 (94.44%)
+              samples spent calling
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-fastshortest-jl-fastshortest-105">fastshortest</a><br />
+              1 (5.56%)
+              samples spent calling
+              <a href="tuple-jl-bcf4a2cf362f4fac64e6-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-tuple-jl-indexed_iterate-63">indexed_iterate</a><br />
+            </div>
+            <span class="code">        status,len,point = fastshortest(v,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-81"></a>81</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elseif mode == FIXED
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-82"></a>82</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        status,len,point = fastfixedtoa(v,0,requested_digits,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-83"></a>83</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elseif mode == PRECISION
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-84"></a>84</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        status,len,point = fastprecision(v,requested_digits,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-85"></a>85</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-86"></a>86</td>
+          <td>1 (0.27%)</td>
+          <td>1 (0.27%)</td>
+          <td>
+            <span class="code">    status &amp;&amp; return len-1, point, neg
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-87"></a>87</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    status, len, point = bignumdtoa(v,mode,requested_digits,buffer,bignums)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-88"></a>88</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return len-1, point, neg
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-89"></a>89</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-90"></a>90</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-91"></a>91</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">nanstr(x::AbstractFloat) = &quot;NaN&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-92"></a>92</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">nanstr(x::Float32) = &quot;NaN32&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-93"></a>93</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">nanstr(x::Float16) = &quot;NaN16&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-94"></a>94</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">infstr(x::AbstractFloat) = &quot;Inf&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-95"></a>95</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">infstr(x::Float32) = &quot;Inf32&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-96"></a>96</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">infstr(x::Float16) = &quot;Inf16&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-97"></a>97</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-98"></a>98</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-_show-98"></a>
+              27 (7.20%) samples spent in _show<br />
+              0 (ex.),
+              27 (100.00%) (incl.)
+              when called from
+              show
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-161">line 161</a><br />
+            </div>
+            <span class="code">function _show(io::IO, x::AbstractFloat, mode, n::Int, typed, compact)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-99"></a>99</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    isnan(x) &amp;&amp; return print(io, typed ? nanstr(x) : &quot;NaN&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-100"></a>100</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if isinf(x)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-101"></a>101</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        signbit(x) &amp;&amp; print(io,&#39;-&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-102"></a>102</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, typed ? infstr(x) : &quot;Inf&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-103"></a>103</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-104"></a>104</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-105"></a>105</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    typed &amp;&amp; isa(x,Float16) &amp;&amp; print(io, &quot;Float16(&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-106"></a>106</td>
+          <td></td>
+          <td>4 (1.07%)</td>
+          <td>
+            <div class="callees">
+              4 (100.00%)
+              samples spent calling
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-getbuf-30">getbuf</a><br />
+            </div>
+            <span class="code">    buffer = getbuf()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-107"></a>107</td>
+          <td></td>
+          <td>19 (5.07%)</td>
+          <td>
+            <div class="callees">
+              19 (100.00%)
+              samples spent calling
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-grisu-61">grisu</a><br />
+            </div>
+            <span class="code">    len, pt, neg = grisu(x,mode,n,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-108"></a>108</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pdigits = pointer(buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-109"></a>109</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if mode == PRECISION
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-110"></a>110</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        while len &gt; 1 &amp;&amp; buffer[len] == 0x30
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-111"></a>111</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            len -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-112"></a>112</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-113"></a>113</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-114"></a>114</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    neg &amp;&amp; print(io,&#39;-&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-115"></a>115</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    exp_form = pt &lt;= -4 || pt &gt; 6
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-116"></a>116</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    exp_form = exp_form || (pt &gt;= len &amp;&amp; abs(mod(x + 0.05, 10^(pt - len)) - 0.05) &gt; 0.05) # see issue #6608
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-117"></a>117</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if exp_form # .00001 to 100000.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-118"></a>118</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # =&gt; #.#######e###
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-119"></a>119</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # assumes ASCII/UTF8 encoding of digits is okay for out:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-120"></a>120</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits, 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-121"></a>121</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &#39;.&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-122"></a>122</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if len &gt; 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-123"></a>123</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            unsafe_write(io, pdigits+1, len-1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-124"></a>124</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-125"></a>125</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            print(io, &#39;0&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-126"></a>126</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-127"></a>127</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, (typed &amp;&amp; isa(x,Float32)) ? &#39;f&#39; : &#39;e&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-128"></a>128</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, string(pt - 1))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-129"></a>129</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        typed &amp;&amp; isa(x,Float16) &amp;&amp; print(io, &quot;)&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-130"></a>130</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-131"></a>131</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elseif pt &lt;= 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-132"></a>132</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # =&gt; 0.00########
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-133"></a>133</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &quot;0.&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-134"></a>134</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        while pt &lt; 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-135"></a>135</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            print(io, &#39;0&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-136"></a>136</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            pt += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-137"></a>137</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-138"></a>138</td>
+          <td></td>
+          <td>4 (1.07%)</td>
+          <td>
+            <div class="callees">
+              4 (100.00%)
+              samples spent calling
+              <a href="io-jl-58401a0af83222dc3d8d-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-io-jl-unsafe_write-522">unsafe_write</a><br />
+            </div>
+            <span class="code">        unsafe_write(io, pdigits, len)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-139"></a>139</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elseif pt &gt;= len
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-140"></a>140</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # =&gt; ########00.0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-141"></a>141</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits, len)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-142"></a>142</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        while pt &gt; len
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-143"></a>143</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            print(io, &#39;0&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-144"></a>144</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            len += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-145"></a>145</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-146"></a>146</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &quot;.0&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-147"></a>147</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else # =&gt; ####.####
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-148"></a>148</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits, pt)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-149"></a>149</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &#39;.&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-150"></a>150</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits+pt, len-pt)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-151"></a>151</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-152"></a>152</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    typed &amp;&amp; !compact &amp;&amp; isa(x,Float32) &amp;&amp; print(io, &quot;f0&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-153"></a>153</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    typed &amp;&amp; isa(x,Float16) &amp;&amp; print(io, &quot;)&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-154"></a>154</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-155"></a>155</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-156"></a>156</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-157"></a>157</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-show-157"></a>
+              28 (7.47%) samples spent in show<br />
+              1 (100.00%) (ex.),
+              1 (3.57%) (incl.)
+              when called from
+              print_to_string
+              <a href="io-jl-f471e8ff8669b1256a0f-line.html#Lio-jl-f471e8ff8669b1256a0f-line.html-129">line 129</a><br />
+              0 (ex.),
+              27 (96.43%) (incl.)
+              when called from
+              print
+              <a href="io-jl-f471e8ff8669b1256a0f-line.html#Lio-jl-f471e8ff8669b1256a0f-line.html-37">line 37</a><br />
+            </div>
+            <span class="code">function Base.show(io::IO, x::Union{Float64,Float32})
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-158"></a>158</td>
+          <td>1 (0.27%)</td>
+          <td>1 (0.27%)</td>
+          <td>
+            <span class="code">    if get(io, :compact, false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-159"></a>159</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _show(io, x, PRECISION, 6, x isa Float64, true)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-160"></a>160</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-161"></a>161</td>
+          <td></td>
+          <td>27 (7.20%)</td>
+          <td>
+            <div class="callees">
+              27 (100.00%)
+              samples spent calling
+              <a href="grisu-jl-33155d0fd08d48ba5d8e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-grisu-jl-_show-98">_show</a><br />
+            </div>
+            <span class="code">        _show(io, x, SHORTEST, 0, get(io, :typeinfo, Any) !== typeof(x), false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-162"></a>162</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-163"></a>163</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-164"></a>164</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-165"></a>165</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.show(io::IO, x::Float16)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-166"></a>166</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    hastypeinfo = Float16 === get(io, :typeinfo, Any)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-167"></a>167</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # if hastypeinfo, the printing would be more compact using `SHORTEST`
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-168"></a>168</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # while still retaining all the information
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-169"></a>169</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # BUT: we want to print all digits in `show`, not in display, so we rely
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-170"></a>170</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # on the :compact property to make the decision
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-171"></a>171</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # (cf. https://github.com/JuliaLang/julia/pull/24651#issuecomment-345535687)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-172"></a>172</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if get(io, :compact, false) &amp;&amp; !hastypeinfo
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-173"></a>173</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _show(io, x, PRECISION, 5, false, true)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-174"></a>174</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-175"></a>175</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _show(io, x, SHORTEST, 0, !hastypeinfo, false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-176"></a>176</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-177"></a>177</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-178"></a>178</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-179"></a>179</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.print(io::IO, x::Float32) = _show(io, x, SHORTEST, 0, false, false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-180"></a>180</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.print(io::IO, x::Float16) = _show(io, x, SHORTEST, 0, false, false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-181"></a>181</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-182"></a>182</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># normal:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-183"></a>183</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#   0 &lt; pt &lt; len        ####.####           len+1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-184"></a>184</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#   pt &lt;= 0             0.000########       len-pt+1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-185"></a>185</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#   len &lt;= pt (dot)     ########000.        pt+1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-186"></a>186</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#   len &lt;= pt (no dot)  ########000         pt
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-187"></a>187</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># exponential:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-188"></a>188</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#   pt &lt;= 0             ########e-###       len+k+2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-189"></a>189</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#   0 &lt; pt              ########e###        len+k+1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-190"></a>190</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-191"></a>191</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _print_shortest(io::IO, x::AbstractFloat, dot::Bool, mode, n::Int)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-192"></a>192</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    isnan(x) &amp;&amp; return print(io, &quot;NaN&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-193"></a>193</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    x &lt; 0 &amp;&amp; print(io,&#39;-&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-194"></a>194</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    isinf(x) &amp;&amp; return print(io, &quot;Inf&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-195"></a>195</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    buffer = getbuf()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-196"></a>196</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    len, pt, neg = grisu(x,mode,n,buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-197"></a>197</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pdigits = pointer(buffer)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-198"></a>198</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    e = pt-len
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-199"></a>199</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    k = -9&lt;=e&lt;=9 ? 1 : 2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-200"></a>200</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if -pt &gt; k+1 || e+dot &gt; k+1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-201"></a>201</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # =&gt; ########e###
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-202"></a>202</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits+0, len)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-203"></a>203</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &#39;e&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-204"></a>204</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, string(e))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-205"></a>205</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-206"></a>206</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elseif pt &lt;= 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-207"></a>207</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # =&gt; 0.000########
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-208"></a>208</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &quot;0.&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-209"></a>209</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        while pt &lt; 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-210"></a>210</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            print(io, &#39;0&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-211"></a>211</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            pt += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-212"></a>212</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-213"></a>213</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits+0, len)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-214"></a>214</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elseif e &gt;= dot
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-215"></a>215</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # =&gt; ########000.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-216"></a>216</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits+0, len)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-217"></a>217</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        while e &gt; 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-218"></a>218</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            print(io, &#39;0&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-219"></a>219</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            e -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-220"></a>220</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-221"></a>221</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if dot
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-222"></a>222</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            print(io, &#39;.&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-223"></a>223</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-224"></a>224</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else # =&gt; ####.####
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-225"></a>225</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits+0, pt)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-226"></a>226</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        print(io, &#39;.&#39;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-227"></a>227</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        unsafe_write(io, pdigits+pt, len-pt)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-228"></a>228</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-229"></a>229</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-230"></a>230</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-231"></a>231</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-232"></a>232</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-233"></a>233</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    print_shortest(io::IO, x)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-234"></a>234</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-235"></a>235</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Print the shortest possible representation, with the minimum number of consecutive non-zero
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-236"></a>236</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">digits, of number `x`, ensuring that it would parse to the exact same number.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-237"></a>237</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-238"></a>238</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">print_shortest(io::IO, x::AbstractFloat, dot::Bool) = _print_shortest(io, x, dot, SHORTEST, 0)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-239"></a>239</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">print_shortest(io::IO, x::Union{AbstractFloat,Integer}) = print_shortest(io, float(x), false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-240"></a>240</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgrisu-jl-33155d0fd08d48ba5d8e-line.html-241"></a>241</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end # module
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

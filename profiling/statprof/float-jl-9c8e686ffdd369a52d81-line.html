@@ -1,0 +1,2637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./grisu/float.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># This file is a part of Julia, but is derived from
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># https://github.com/google/double-conversion which has the following license
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Copyright 2006-2014, the V8 project authors. All rights reserved.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Redistribution and use in source and binary forms, with or without
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># modification, are permitted provided that the following conditions are
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># met:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#     * Redistributions of source code must retain the above copyright
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       notice, this list of conditions and the following disclaimer.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#     * Redistributions in binary form must reproduce the above
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       copyright notice, this list of conditions and the following
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       disclaimer in the documentation and/or other materials provided
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       with the distribution.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#     * Neither the name of Google Inc. nor the names of its
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       contributors may be used to endorse or promote products derived
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#       from this software without specific prior written permission.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">import Base: -, *
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">struct Float
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    s::UInt64
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    e::Int32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    de::Int32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Float() = Float(0,0,0)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Float(x,y) = Float(x,y,Int32(0))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Float(d::AbstractFloat) = Float(_significand(d), _exponent(d))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Consts
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const Float10MSBits = 0xFFC0000000000000 # used normalize(Float)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const FloatSignMask = 0x8000000000000000 # used in normalize(Float)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const FloatSignificandSize = Int32(64)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function normalize(v::Float)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    f = v.s
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    e::Int32 = v.e
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while (f &amp; Float10MSBits) == 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        f &lt;&lt;= 10
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        e -= 10
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while (f &amp; FloatSignMask) == 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        f &lt;&lt;= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        e -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return Float(f,e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function normalize(v::Float64)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    s = _significand(v); e = _exponent(v)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-63"></a>63</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while (s &amp; HiddenBit(Float64)) == 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        s &lt;&lt;= UInt64(1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        e -= Int32(1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-66"></a>66</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    s &lt;&lt;= UInt64(FloatSignificandSize - SignificandSize(Float64))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-68"></a>68</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    e -=  Int32( FloatSignificandSize - SignificandSize(Float64))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-69"></a>69</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return Float(s, e)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-70"></a>70</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-71"></a>71</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-72"></a>72</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Float128
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-73"></a>73</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#DenormalExponent(::Type{Float128}) = Int32(-ExponentBias(Float128) + 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-74"></a>74</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#ExponentMask(::Type{Float128}) = 0x7fff0000000000000000000000000000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-75"></a>75</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#PhysicalSignificandSize(::Type{Float128}) = Int32(112)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-76"></a>76</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#SignificandSize(::Type{Float128}) = Int32(113)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-77"></a>77</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#ExponentBias(::Type{Float128}) = Int32(0x00003fff + PhysicalSignificandSize(Float128))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-78"></a>78</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#SignificandMask(::Type{Float128}) = 0x0000ffffffffffffffffffffffffffff
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-79"></a>79</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#HiddenBit(::Type{Float128}) = 0x00010000000000000000000000000000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-80"></a>80</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#uint_t(d::Float128) = reinterpret(UInt128,d)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-81"></a>81</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Float64
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-82"></a>82</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">DenormalExponent(::Type{Float64}) = Int32(-ExponentBias(Float64) + 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-83"></a>83</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">ExponentMask(::Type{Float64}) = 0x7FF0000000000000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-84"></a>84</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">PhysicalSignificandSize(::Type{Float64}) = Int32(52)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-85"></a>85</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">SignificandSize(::Type{Float64}) = Int32(53)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-86"></a>86</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">ExponentBias(::Type{Float64}) = Int32(0x3FF + PhysicalSignificandSize(Float64))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-87"></a>87</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">SignificandMask(::Type{Float64}) = 0x000FFFFFFFFFFFFF
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-88"></a>88</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">HiddenBit(::Type{Float64}) = 0x0010000000000000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-89"></a>89</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">uint_t(d::Float64) = reinterpret(UInt64,d)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-90"></a>90</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Float32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-91"></a>91</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">DenormalExponent(::Type{Float32}) = Int32(-ExponentBias(Float32) + 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-92"></a>92</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">ExponentMask(::Type{Float32}) = 0x7F800000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-93"></a>93</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">PhysicalSignificandSize(::Type{Float32}) = Int32(23)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-94"></a>94</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">SignificandSize(::Type{Float32}) = Int32(24)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-95"></a>95</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">ExponentBias(::Type{Float32}) = Int32(0x7F + PhysicalSignificandSize(Float32))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-96"></a>96</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">SignificandMask(::Type{Float32}) = 0x007FFFFF
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-97"></a>97</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">HiddenBit(::Type{Float32}) = 0x00800000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-98"></a>98</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">uint_t(d::Float32) = reinterpret(UInt32,d)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-99"></a>99</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Float16
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-100"></a>100</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">DenormalExponent(::Type{Float16}) = Int32(-ExponentBias(Float16) + 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-101"></a>101</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">ExponentMask(::Type{Float16}) = 0x7c00
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-102"></a>102</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">PhysicalSignificandSize(::Type{Float16}) = Int32(10)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-103"></a>103</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">SignificandSize(::Type{Float16}) = Int32(11)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-104"></a>104</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">ExponentBias(::Type{Float16}) = Int32(0x000f + PhysicalSignificandSize(Float16))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-105"></a>105</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">SignificandMask(::Type{Float16}) = 0x03ff
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-106"></a>106</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">HiddenBit(::Type{Float16}) = 0x0400
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-107"></a>107</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">uint_t(d::Float16) = reinterpret(UInt16,d)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-108"></a>108</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-109"></a>109</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _exponent(d::T) where T&lt;:AbstractFloat
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-110"></a>110</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  isdenormal(d) &amp;&amp; return DenormalExponent(T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-111"></a>111</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  biased_e::Int32 = Int32((uint_t(d) &amp; ExponentMask(T)) &gt;&gt; PhysicalSignificandSize(T))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-112"></a>112</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  return Int32(biased_e - ExponentBias(T))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-113"></a>113</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-114"></a>114</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _significand(d::T) where T&lt;:AbstractFloat
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-115"></a>115</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  s = uint_t(d) &amp; SignificandMask(T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-116"></a>116</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  return !isdenormal(d) ? s + HiddenBit(T) : s
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-117"></a>117</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-118"></a>118</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">isdenormal(d::T) where {T&lt;:AbstractFloat} = (uint_t(d) &amp; ExponentMask(T)) == 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-119"></a>119</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-120"></a>120</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function normalizedbound(f::AbstractFloat)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-121"></a>121</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    v = Float(_significand(f),_exponent(f))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-122"></a>122</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    m_plus = normalize(Float((v.s &lt;&lt; 1) + 1, v.e - 1))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-123"></a>123</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if lowerboundaryiscloser(f)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-124"></a>124</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        m_minus = Float((v.s &lt;&lt; 2) - 1, v.e - 2)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-125"></a>125</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-126"></a>126</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        m_minus = Float((v.s &lt;&lt; 1) - 1, v.e - 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-127"></a>127</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-128"></a>128</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return Float(m_minus.s &lt;&lt; (m_minus.e - m_plus.e), m_plus.e), m_plus
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-129"></a>129</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-130"></a>130</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function lowerboundaryiscloser(f::T) where T&lt;:AbstractFloat
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-131"></a>131</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    physical_significand_is_zero = (uint_t(f) &amp; SignificandMask(T)) == 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-132"></a>132</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return physical_significand_is_zero &amp;&amp; (_exponent(f) != DenormalExponent(T))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-133"></a>133</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-134"></a>134</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-135"></a>135</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">(-)(a::Float,b::Float) = Float(a.s - b.s,a.e,a.de)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-136"></a>136</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-137"></a>137</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const FloatM32 = 0xFFFFFFFF
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-138"></a>138</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-139"></a>139</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function (*)(this::Float,other::Float)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-140"></a>140</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    a::UInt64 = this.s &gt;&gt; 32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-141"></a>141</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    b::UInt64 = this.s &amp; FloatM32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-142"></a>142</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    c::UInt64 = other.s &gt;&gt; 32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-143"></a>143</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    d::UInt64 = other.s &amp; FloatM32
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-144"></a>144</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ac::UInt64 = a * c
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-145"></a>145</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    bc::UInt64 = b * c
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-146"></a>146</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ad::UInt64 = a * d
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-147"></a>147</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    bd::UInt64 = b * d
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-148"></a>148</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    tmp::UInt64 = (bd &gt;&gt; 32) + (ad &amp; FloatM32) + (bc &amp; FloatM32)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-149"></a>149</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # By adding 1U &lt;&lt; 31 to tmp we round the final result.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-150"></a>150</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # Halfway cases will be round up.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-151"></a>151</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-float-jl-151"></a>
+              1 (0.27%) samples spent in *<br />
+              0 (ex.),
+              1 (100.00%) (incl.)
+              when called from
+              fastshortest
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-112">line 112</a><br />
+            </div>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="int-jl-7d1d1d24bc876ceacf40-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-int-jl-53">+</a><br />
+            </div>
+            <span class="code">    tmp += UInt64(1) &lt;&lt; 31
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-152"></a>152</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    result_f::UInt64 = ac + (ad &gt;&gt; 32) + (bc &gt;&gt; 32) + (tmp &gt;&gt; 32)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-153"></a>153</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-grisu-float-jl-153"></a>
+              1 (0.27%) samples spent in *<br />
+              0 (ex.),
+              1 (100.00%) (incl.)
+              when called from
+              fastshortest
+              <a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html#Lfastshortest-jl-f6958f6cc1fb853c8d1f-line.html-111">line 111</a><br />
+            </div>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="operators-jl-e0e1796a928a9361cd7e-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-operators-jl-529">+</a><br />
+            </div>
+            <span class="code">    return Float(result_f,this.e + other.e + 64,this.de)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-154"></a>154</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-155"></a>155</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-156"></a>156</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const CachedPowers = Float[
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-157"></a>157</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xfa8fd5a0081c0288, -1220, -348),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-158"></a>158</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xbaaee17fa23ebf76, -1193, -340),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-159"></a>159</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8b16fb203055ac76, -1166, -332),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-160"></a>160</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xcf42894a5dce35ea, -1140, -324),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-161"></a>161</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9a6bb0aa55653b2d, -1113, -316),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-162"></a>162</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xe61acf033d1a45df, -1087, -308),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-163"></a>163</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xab70fe17c79ac6ca, -1060, -300),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-164"></a>164</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xff77b1fcbebcdc4f, -1034, -292),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-165"></a>165</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xbe5691ef416bd60c, -1007, -284),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-166"></a>166</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8dd01fad907ffc3c, -980, -276),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-167"></a>167</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xd3515c2831559a83, -954, -268),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-168"></a>168</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9d71ac8fada6c9b5, -927, -260),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-169"></a>169</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xea9c227723ee8bcb, -901, -252),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-170"></a>170</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xaecc49914078536d, -874, -244),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-171"></a>171</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x823c12795db6ce57, -847, -236),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-172"></a>172</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xc21094364dfb5637, -821, -228),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-173"></a>173</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9096ea6f3848984f, -794, -220),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-174"></a>174</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xd77485cb25823ac7, -768, -212),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-175"></a>175</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xa086cfcd97bf97f4, -741, -204),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-176"></a>176</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xef340a98172aace5, -715, -196),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-177"></a>177</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xb23867fb2a35b28e, -688, -188),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-178"></a>178</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x84c8d4dfd2c63f3b, -661, -180),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-179"></a>179</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xc5dd44271ad3cdba, -635, -172),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-180"></a>180</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x936b9fcebb25c996, -608, -164),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-181"></a>181</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xdbac6c247d62a584, -582, -156),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-182"></a>182</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xa3ab66580d5fdaf6, -555, -148),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-183"></a>183</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xf3e2f893dec3f126, -529, -140),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-184"></a>184</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xb5b5ada8aaff80b8, -502, -132),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-185"></a>185</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x87625f056c7c4a8b, -475, -124),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-186"></a>186</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xc9bcff6034c13053, -449, -116),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-187"></a>187</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x964e858c91ba2655, -422, -108),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-188"></a>188</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xdff9772470297ebd, -396, -100),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-189"></a>189</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xa6dfbd9fb8e5b88f, -369, -92),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-190"></a>190</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xf8a95fcf88747d94, -343, -84),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-191"></a>191</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xb94470938fa89bcf, -316, -76),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-192"></a>192</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8a08f0f8bf0f156b, -289, -68),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-193"></a>193</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xcdb02555653131b6, -263, -60),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-194"></a>194</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x993fe2c6d07b7fac, -236, -52),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-195"></a>195</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xe45c10c42a2b3b06, -210, -44),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-196"></a>196</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xaa242499697392d3, -183, -36),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-197"></a>197</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xfd87b5f28300ca0e, -157, -28),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-198"></a>198</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xbce5086492111aeb, -130, -20),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-199"></a>199</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8cbccc096f5088cc, -103, -12),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-200"></a>200</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xd1b71758e219652c, -77, -4),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-201"></a>201</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9c40000000000000, -50, 4),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-202"></a>202</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xe8d4a51000000000, -24, 12),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-203"></a>203</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xad78ebc5ac620000, 3, 20),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-204"></a>204</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x813f3978f8940984, 30, 28),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-205"></a>205</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xc097ce7bc90715b3, 56, 36),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-206"></a>206</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8f7e32ce7bea5c70, 83, 44),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-207"></a>207</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xd5d238a4abe98068, 109, 52),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-208"></a>208</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9f4f2726179a2245, 136, 60),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-209"></a>209</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xed63a231d4c4fb27, 162, 68),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-210"></a>210</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xb0de65388cc8ada8, 189, 76),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-211"></a>211</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x83c7088e1aab65db, 216, 84),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-212"></a>212</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xc45d1df942711d9a, 242, 92),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-213"></a>213</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x924d692ca61be758, 269, 100),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-214"></a>214</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xda01ee641a708dea, 295, 108),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-215"></a>215</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xa26da3999aef774a, 322, 116),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-216"></a>216</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xf209787bb47d6b85, 348, 124),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-217"></a>217</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xb454e4a179dd1877, 375, 132),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-218"></a>218</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x865b86925b9bc5c2, 402, 140),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-219"></a>219</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xc83553c5c8965d3d, 428, 148),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-220"></a>220</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x952ab45cfa97a0b3, 455, 156),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-221"></a>221</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xde469fbd99a05fe3, 481, 164),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-222"></a>222</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xa59bc234db398c25, 508, 172),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-223"></a>223</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xf6c69a72a3989f5c, 534, 180),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-224"></a>224</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xb7dcbf5354e9bece, 561, 188),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-225"></a>225</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x88fcf317f22241e2, 588, 196),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-226"></a>226</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xcc20ce9bd35c78a5, 614, 204),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-227"></a>227</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x98165af37b2153df, 641, 212),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-228"></a>228</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xe2a0b5dc971f303a, 667, 220),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-229"></a>229</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xa8d9d1535ce3b396, 694, 228),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-230"></a>230</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xfb9b7cd9a4a7443c, 720, 236),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-231"></a>231</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xbb764c4ca7a44410, 747, 244),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-232"></a>232</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8bab8eefb6409c1a, 774, 252),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-233"></a>233</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xd01fef10a657842c, 800, 260),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-234"></a>234</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9b10a4e5e9913129, 827, 268),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-235"></a>235</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xe7109bfba19c0c9d, 853, 276),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-236"></a>236</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xac2820d9623bf429, 880, 284),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-237"></a>237</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x80444b5e7aa7cf85, 907, 292),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-238"></a>238</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xbf21e44003acdd2d, 933, 300),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-239"></a>239</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x8e679c2f5e44ff8f, 960, 308),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-240"></a>240</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xd433179d9c8cb841, 986, 316),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-241"></a>241</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0x9e19db92b4e31ba9, 1013, 324),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-242"></a>242</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xeb96bf6ebadf77d9, 1039, 332),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-243"></a>243</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  Float(0xaf87023b9bf0ee6b, 1066, 340)]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-244"></a>244</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-245"></a>245</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const CachedPowersLength = length(CachedPowers)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-246"></a>246</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const CachedPowersOffset = 348  # -1 * the first decimal_exponent.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-247"></a>247</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const D_1_LOG2_10 = 0.30102999566398114  #  1 / lg(10)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-248"></a>248</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Difference between the decimal exponents in the table above.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-249"></a>249</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const DecimalExponentDistance = 8
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-250"></a>250</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const MinDecimalExponent = -348
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-251"></a>251</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const MaxDecimalExponent = 340
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-252"></a>252</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-253"></a>253</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function binexp_cache(min_exponent,max_exponent)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-254"></a>254</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    k = ceil(Integer,(min_exponent+63)*D_1_LOG2_10)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-255"></a>255</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    index = div(CachedPowersOffset+k-1,DecimalExponentDistance) + 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-256"></a>256</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    cp = CachedPowers[index+1]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-257"></a>257</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return cp
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfloat-jl-9c8e686ffdd369a52d81-line.html-258"></a>258</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/jarye821/Repositories/tdde45-lab5/profiling/test.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">using BenchmarkTools
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">using Random
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">using Profile
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">using StatProfilerHTML
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-jarye821-Repositories-tdde45-lab5-profiling-test-jl-f-6"></a>
+              162 (43.20%) samples spent in f<br />
+              0 (ex.),
+              162 (100.00%) (incl.)
+              when called from
+              include
+              <a href="boot-jl-42a3f80125daa9a7caaf-line.html#Lboot-jl-42a3f80125daa9a7caaf-line.html-328">line 328</a><br />
+            </div>
+            <span class="code">function f()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  lst = rand(50000)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-8"></a>8</td>
+          <td></td>
+          <td>1 (0.27%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="array-jl-e94fe94e94e507146e17-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-array-jl-iterate-704">iterate</a><br />
+            </div>
+            <span class="code">  for i in lst
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-9"></a>9</td>
+          <td></td>
+          <td>158 (42.13%)</td>
+          <td>
+            <div class="callees">
+              158 (100.00%)
+              samples spent calling
+              <a href="io-jl-f471e8ff8669b1256a0f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-strings-io-jl-string-168">string</a><br />
+            </div>
+            <span class="code">    s = &quot;List entry $(i)\r&quot; # The \r makes it so the terminal isn&#39;t filled
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if i &gt; 0.99
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-11"></a>11</td>
+          <td></td>
+          <td>3 (0.80%)</td>
+          <td>
+            <div class="callees">
+              3 (100.00%)
+              samples spent calling
+              <a href="coreio-jl-edb4f17b7f674c255c23-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-coreio-jl-print-2">print</a><br />
+            </div>
+            <span class="code">      print(s)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">  end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">@profile f()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">@time f()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">x = @benchmark f()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">println()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">println(x)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Profile.print()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Ltest-jl-d769d51038fbb1aeca05-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">statprofilehtml()
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

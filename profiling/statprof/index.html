@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+    <title>StatProfilerHTML.jl: main report</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <object data="clickable_stacks_by_time.svg" width="90%" type="image/svg+xml" style="display: block" id="zoomable_flamegraph">
+        SVG not supported
+      </object>
+      <object data="zoomable_stacks_by_time.svg" width="90%" type="image/svg+xml" style="display: none" id="clickable_flamegraph">
+        SVG not supported
+      </object>
+      <div><a href="#" onclick="switch_flamegraph()">Switch flamegraph</a></div>
+      <br /><br />
+      <table>
+        <caption>Subroutines, sorted by exclusive sample count</caption>
+        <tr>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Subroutine</th>
+        </tr>
+
+        <tr>
+          <td>86 (22.93%)</td>
+          <td>375 (100.00%)</td>
+          <td>
+            <a href="boot-jl-42a3f80125daa9a7caaf-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-boot-jl-include-328">include</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>52 (13.87%)</td>
+          <td>103 (27.47%)</td>
+          <td>
+            <a href="io-jl-f471e8ff8669b1256a0f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-strings-io-jl-print-34">print</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>35 (9.33%)</td>
+          <td>154 (41.07%)</td>
+          <td>
+            <a href="io-jl-f471e8ff8669b1256a0f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-strings-io-jl-print_to_string-118">print_to_string</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>20 (5.33%)</td>
+          <td>20 (5.33%)</td>
+          <td>
+            <a href="boot-jl-42a3f80125daa9a7caaf-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-boot-jl-Type-404">Type</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>19 (5.07%)</td>
+          <td>19 (5.07%)</td>
+          <td>
+            <a href="reflection-jl-56d572f786e5f30bb907-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-reflection-jl-assemble_inline_todo-975">assemble_inline_todo!</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>8 (2.13%)</td>
+          <td>8 (2.13%)</td>
+          <td>
+            <a href="reflection-jl-56d572f786e5f30bb907-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-reflection-jl-_methods_by_ftype-808">_methods_by_ftype</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>8 (2.13%)</td>
+          <td>8 (2.13%)</td>
+          <td>
+            <a href="reflection-jl-56d572f786e5f30bb907-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-reflection-jl-abstract_call_gf_by_type-20">abstract_call_gf_by_type</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>6 (1.60%)</td>
+          <td>6 (1.60%)</td>
+          <td>
+            <a href="iobuffer-jl-85a8f3e083b50f148eae-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-iobuffer-jl-Type-20">Type</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td>16 (4.27%)</td>
+          <td>
+            <a href="slot2ssa-jl-2758fbd3c4a5d18d9754-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-ssair-slot2ssa-jl-construct_ssa-573">construct_ssa!</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td>14 (3.73%)</td>
+          <td>
+            <a href="inlining-jl-4c5c51d180d8c11fc6b4-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-ssair-inlining-jl-analyze_method-660">analyze_method!</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td>5 (1.33%)</td>
+          <td>
+            <a href="typeutils-jl-f7ea74bcf58f9c9d3de5-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-typeutils-jl-argtypes_to_type-46">argtypes_to_type</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td>4 (1.07%)</td>
+          <td>
+            <a href="array-jl-e94fe94e94e507146e17-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-array-jl-getindex-728">getindex</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td>4 (1.07%)</td>
+          <td>
+            <a href="array-jl-e94fe94e94e507146e17-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-array-jl-_deleteend-820">_deleteend!</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td>4 (1.07%)</td>
+          <td>
+            <a href="int-jl-7d1d1d24bc876ceacf40-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-int-jl-53">+</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td>158 (42.13%)</td>
+          <td>
+            <a href="io-jl-f471e8ff8669b1256a0f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-strings-io-jl-string-168">string</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td>5 (1.33%)</td>
+          <td>
+            <a href="ir-jl-b6e925c25ab65d9c790f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-ssair-ir-jl-iterate-386">iterate</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td>4 (1.07%)</td>
+          <td>
+            <a href="abstractinterpretation-jl-ade5843ff7f94b0a1648-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-abstractinterpretation-jl-abstract_eval_global-1029">abstract_eval_global</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td>3 (0.80%)</td>
+          <td>
+            <a href="array-jl-e94fe94e94e507146e17-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-array-jl-_growend-811">_growend!</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td>3 (0.80%)</td>
+          <td>
+            <a href="utilities-jl-9aa3f9cdb2b36a81199f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-utilities-jl-retrieve_code_info-108">retrieve_code_info</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td>3 (0.80%)</td>
+          <td>
+            <a href="ir-jl-b6e925c25ab65d9c790f-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-compiler-ssair-ir-jl-getindex-284">getindex</a>
+          </td>
+        </tr>
+      </table>
+      <a href="subs.html">All subroutines</a>
+      <br /><br />
+      <table>
+        <caption>Files, sorted by exclusive sample count</caption>
+        <tr>
+          <th>Exclusive</th>
+          <th>Report</th>
+        </tr>
+
+        <tr>
+          <td>108 (28.80%)</td>
+          <td><a href="boot-jl-42a3f80125daa9a7caaf-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./boot.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>90 (24.00%)</td>
+          <td><a href="io-jl-f471e8ff8669b1256a0f-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./strings/io.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>37 (9.87%)</td>
+          <td><a href="reflection-jl-56d572f786e5f30bb907-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./reflection.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>22 (5.87%)</td>
+          <td><a href="array-jl-e94fe94e94e507146e17-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./array.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>17 (4.53%)</td>
+          <td><a href="ir-jl-b6e925c25ab65d9c790f-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/ssair/ir.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>12 (3.20%)</td>
+          <td><a href="inlining-jl-4c5c51d180d8c11fc6b4-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/ssair/inlining.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>10 (2.67%)</td>
+          <td><a href="int-jl-7d1d1d24bc876ceacf40-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./int.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>10 (2.67%)</td>
+          <td><a href="abstractinterpretation-jl-ade5843ff7f94b0a1648-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/abstractinterpretation.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>9 (2.40%)</td>
+          <td><a href="iobuffer-jl-85a8f3e083b50f148eae-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./iobuffer.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>7 (1.87%)</td>
+          <td><a href="slot2ssa-jl-2758fbd3c4a5d18d9754-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/ssair/slot2ssa.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>6 (1.60%)</td>
+          <td><a href="utilities-jl-9aa3f9cdb2b36a81199f-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/utilities.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>5 (1.33%)</td>
+          <td><a href="typeinfer-jl-34933e4d9d5d9efd4d46-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/typeinfer.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>5 (1.33%)</td>
+          <td><a href="fastshortest-jl-f6958f6cc1fb853c8d1f-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./grisu/fastshortest.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>5 (1.33%)</td>
+          <td><a href="typeutils-jl-f7ea74bcf58f9c9d3de5-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/typeutils.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td><a href="grisu-jl-33155d0fd08d48ba5d8e-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./grisu/grisu.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>4 (1.07%)</td>
+          <td><a href="string-jl-5c4333d9dd3da9668e30-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./strings/string.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>3 (0.80%)</td>
+          <td><a href="tuple-jl-bcf4a2cf362f4fac64e6-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./tuple.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>2 (0.53%)</td>
+          <td><a href="range-jl-6380163a7e3ec6f8eaae-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./range.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>2 (0.53%)</td>
+          <td><a href="task-jl-bc7d0afe96f0df219554-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./task.jl</a></td>
+        </tr>
+
+        <tr>
+          <td>2 (0.53%)</td>
+          <td><a href="inferenceresult-jl-1cd08fa4a407946c0e66-line.html">/home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./compiler/inferenceresult.jl</a></td>
+        </tr>
+      </table>
+      <a href="files.html">All files</a>
+    </div>
+    <script>
+function switch_flamegraph() {
+    var clickable = document.getElementById("clickable_flamegraph");
+    var zoomable = document.getElementById("zoomable_flamegraph");
+
+    var t = clickable.style.display;
+    clickable.style.display = zoomable.style.display;
+    zoomable.style.display = t;
+
+    return 0;
+}
+    </script>
+  </body>
+</html>

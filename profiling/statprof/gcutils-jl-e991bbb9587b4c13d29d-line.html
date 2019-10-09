@@ -1,0 +1,964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/jarye821/Repositories/tdde45-lab5/julia/julia-1.2.0/bin/../share/julia/base/./gcutils.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Wed 09 Oct 2019 09:20:58 AM CEST</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># This file is a part of Julia. License is MIT: https://julialang.org/license
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">==(w::WeakRef, v::WeakRef) = isequal(w.value, v.value)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">==(w::WeakRef, v) = isequal(w.value, v)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">==(w, v::WeakRef) = isequal(w, v.value)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    finalizer(f, x)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Register a function `f(x)` to be called when there are no program-accessible references to
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">`x`, and return `x`. The type of `x` must be a `mutable struct`, otherwise the behavior of
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">this function is unpredictable.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function finalizer(@nospecialize(f), @nospecialize(o))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if isimmutable(o)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        error(&quot;objects of type &quot;, typeof(o), &quot; cannot be finalized&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ccall(:jl_gc_add_finalizer_th, Cvoid, (Ptr{Cvoid}, Any, Any),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          Core.getptls(), o, f)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return o
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function finalizer(f::Ptr{Cvoid}, o::T) where T
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @_inline_meta
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if isimmutable(T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        error(&quot;objects of type &quot;, T, &quot; cannot be finalized&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ccall(:jl_gc_add_ptr_finalizer, Cvoid, (Ptr{Cvoid}, Any, Ptr{Cvoid}),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          Core.getptls(), o, f)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return o
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    finalize(x)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Immediately run finalizers registered for object `x`.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">finalize(@nospecialize(o)) = ccall(:jl_finalize_th, Cvoid, (Ptr{Cvoid}, Any,),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                                   Core.getptls(), o)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Base.GC
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Module with garbage collection utilities.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">module GC
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    GC.gc()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Perform garbage collection.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">!!! warning
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Excessive use will likely lead to poor performance.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">gc(full::Bool=true) = ccall(:jl_gc_collect, Cvoid, (Int32,), full)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    GC.enable(on::Bool)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Control whether garbage collection is enabled using a boolean argument (`true` for enabled,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">`false` for disabled). Return previous GC state.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-63"></a>63</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">!!! warning
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Disabling garbage collection should be used only with caution, as it can cause memory
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-66"></a>66</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    use to grow without bound.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-68"></a>68</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">enable(on::Bool) = ccall(:jl_gc_enable, Int32, (Int32,), on) != 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-69"></a>69</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-70"></a>70</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-71"></a>71</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    GC.@preserve x1 x2 ... xn expr
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-72"></a>72</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-73"></a>73</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Temporarily protect the given objects from being garbage collected, even if they would
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-74"></a>74</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">otherwise be unreferenced.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-75"></a>75</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-76"></a>76</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">The last argument is the expression during which the object(s) will be preserved.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-77"></a>77</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">The previous arguments are the objects to preserve.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-78"></a>78</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-79"></a>79</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">macro preserve(args...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-80"></a>80</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    syms = args[1:end-1]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-81"></a>81</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for x in syms
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-82"></a>82</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        isa(x, Symbol) || error(&quot;Preserved variable must be a symbol&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-83"></a>83</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-84"></a>84</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    s, r = gensym(), gensym()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-85"></a>85</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    esc(quote
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-86"></a>86</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        $s = $(Expr(:gc_preserve_begin, syms...))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-87"></a>87</td>
+          <td></td>
+          <td>3 (0.80%)</td>
+          <td>
+            <div class="callees">
+              3 (100.00%)
+              samples spent calling
+              <a href="stream-jl-e24c662a2a57f99b7d86-line.html#S-home-jarye821-Repositories-tdde45-lab5-julia-julia-1-2-0-bin-share-julia-base-stream-jl-unsafe_write-929">unsafe_write</a><br />
+            </div>
+            <span class="code">        $r = $(args[end])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-88"></a>88</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        $(Expr(:gc_preserve_end, s))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-89"></a>89</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        $r
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-90"></a>90</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-91"></a>91</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-92"></a>92</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lgcutils-jl-e991bbb9587b4c13d29d-line.html-93"></a>93</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end # module GC
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
